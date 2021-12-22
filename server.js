@@ -64,7 +64,7 @@ app.use(session({
     //   client:connection.getClient()
     // }),
     store: MongoDbStore.create({
-      mongoUrl: 'mongodb://localhost:27017/complaintSystem', //YOUR MONGODB URL
+      mongoUrl: ` mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.zkflz.mongodb.net/complaintSystem?retryWrites=true&w=majority`, //YOUR MONGODB URL
   }),
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 1 } // 1 hour session expiration/cookie expiration
