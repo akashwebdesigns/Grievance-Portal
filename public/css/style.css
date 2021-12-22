@@ -1,0 +1,488 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:'Work Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Custom Scrollbar  */
+::-webkit-scrollbar{
+    width:18px;
+}
+::-webkit-scrollbar-track{
+    background: white;
+    /* border-radius: 50px; */
+}
+::-webkit-scrollbar-thumb{
+    background: #2463da;
+    border-radius:50px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover{
+    background:#214fa7;
+    border-radius:50px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+}
+.hd{
+    color: #2463da;
+}
+.container-fluid{
+    padding: 0.5rem;
+}
+.header-div{
+    height:45vh;
+    display: flex;
+}
+.carousel-item img{
+    height: 45vh;
+}
+.person{
+    width:25vw;
+    height: 45vh;
+    display: flex;
+    flex-direction:column;
+}
+.per{
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.per img{
+    width: 80px;
+    border-radius: 25px;
+}
+.inform{
+    width:15vw;
+}
+.detail{
+    color: #b12024;
+    text-align: center;
+}
+.btn-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel{
+    width:75vw;
+    height: 45vh;
+}
+
+.navbar{
+    background-color: #34495e;
+}
+.nav-link{
+    color: rgb(54,69,79)
+}
+/* Motto  */
+.motto{
+    margin-top: 3px;
+    height:55vh;
+    padding:7% 9%;
+    background-color: #34495e;
+}
+.motto-btn{
+    margin-top: 30px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.m-btn{
+    width: 15vw;
+    height: 7vh;
+    margin:30px;
+}
+.motto-heading{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size:70px;
+}
+
+section{
+    overflow: hidden;
+    height: 70vh;
+}
+.title{
+    text-align: center;
+    line-height:60px;
+    color:#555;
+    margin:0 auto;
+    padding-top: 1em;
+    position: relative;
+}
+.title::after{
+    content:"";
+    background:#f6931d;
+    width:80px;
+    height:5px;
+    border-radius:5px;
+    position: absolute;
+    bottom:0;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.img-div img{
+    width: 20rem;
+    height: 20rem;
+}
+
+
+/* Contact Us  */
+#logo{
+    width: 50px;
+    height: 50px;
+}
+
+.container{
+    margin-top:44px;
+    margin-bottom:44px;
+    width:70%;
+    height:77vh;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 25px;
+    display:flex;
+    /* justify-content:center; */
+    flex-direction: column;
+    align-items:center;
+    background-color: #FFFFFF;
+}
+#login_logo{
+    margin-left:117px;
+    width:200px;
+    height:200px;
+}
+
+#heading{
+    margin:15px;
+    font-size:42px;
+    color: #2463da;
+}
+
+.txt{
+    font-weight:bolder;
+}
+
+.icon{
+    margin-top:30px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 71px;
+    text-align: center;
+    text-decoration: none;
+    margin: -3px 6px;
+    border-radius: 43px;
+    text-shadow: 3px 6px #272634;
+    transition: all .2s ease-in-out;
+  }
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+
+  .fa:hover {
+
+    transform:scale(1.1);
+    color: white;
+}
+/* Login page  */
+
+.login-page,.register-page{
+    height:100vh;
+}
+
+.login-row,.comp-row{
+    height:90vh;
+}
+
+
+.forgot{
+    margin:7% 15%;
+}
+
+
+
+
+/* User icon  */
+.icon-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.user-ico{
+    width:100px;
+    height:100px;
+    margin-bottom:24px;
+    /* background-color: blueviolet; */
+}
+
+/* Features */
+#features{
+    padding:7% 15%;
+    height:95vh;
+}
+
+.feature-box,.feature-box-inc{
+    text-align: center;
+    padding:5%;
+    height:400px;
+}
+.feature-img,.feature-img-inc{
+    margin-bottom:2em;
+    width:120px;
+    height:120px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+/* Increment  */
+#increment{
+    padding:7% 15%;
+    height:95vh;
+    background-color: #34495e;
+}
+.counter {
+    font-size: 60px;
+    margin: 12px;
+    color: rgb(240, 240, 14);
+  }
+footer{
+    /* height: 100px; */
+    margin-top: auto;
+}
+/*Dashboard*/
+.dash-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.dash-img img{
+    width: 300px;
+    height:300px;
+    opacity: 0.5;
+}
+.dash-img h1{
+    margin-top: 1rem;
+    font-size: 40px;
+    font-weight:bolder;
+    opacity: 0.5;
+}
+.dash-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comp-form{
+    margin:2% 15%;
+}
+.table{
+    width:80vw;
+    margin:0 auto;
+}
+/* Complaint detailed view  */
+
+.outer-box{
+    margin:5px 5px;
+    height:inherit;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.outer-box .comp-detail{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width:70vw;
+    height:inherit;
+    margin:2rem;
+}
+.status{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width:30vw;
+    height:60vh;
+    margin:2rem;
+}
+textarea{
+    resize: none;
+}
+
+.comp-title{
+    color:#0d6efd
+}
+
+.status-img{
+    width:12rem;
+}
+/* Admin */
+.action{
+    display:flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    width:30vw;
+    height:129vh;
+    margin:1rem;
+}
+
+.forgot-div{
+    height:60vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* View  */
+.outer-view-div{
+    height:72vh;
+    margin:1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 3px 4px 39px 9px rgba(41,120,150,0.75);
+    -webkit-box-shadow: 3px 4px 39px 9px rgba(41,120,150,0.75);
+    -moz-box-shadow: 3px 4px 39px 9px rgba(41,120,150,0.75);
+}
+.profile-view-div{
+    height:80%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 2px solid blue; */
+}
+.profile-info-div{
+    /* background-color: brown; */
+    height: 80%;
+    width:65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner-profile-div{
+    width:75%;
+    height: 73%;
+}
+
+/* Responsive Design  */
+@media only screen and (max-width: 768px) {
+    .person{
+        display:none;
+        visibility: hidden;
+    }
+    /* Carousel  */
+    .carousel{
+        width: 100vw;
+    }
+
+    .motto{
+        height:22vh;
+    }
+    .motto-heading{
+        font-size:large;
+    }
+    .m-btn{
+        width: 80px;
+        height:33px;
+        margin-top: 0px;
+        font-size: small;
+    }
+    .motto-btn{
+        margin-top:26px;
+    }
+    #features{
+        height:30vh;
+    }
+    .feature-img,.feature-img-inc{
+        margin-bottom: 0em;
+        width: 20vw;
+        height:8vh;
+    }
+    .feature-box h3{
+        font-size: 1rem;
+        margin-top:0.5rem;
+    }
+    .feature-box-inc h3{
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+    .feature-box{
+        padding: 2%;
+        height:203px;
+    }
+    #increment{
+        height: 60vh;
+    }
+    .counter{
+        font-size: 30px;
+        margin: 6px;
+    }
+    .feature-box-inc{
+        height:203px;
+    }
+    .login-row{
+        height: 66vh;
+    }
+    .register-row{
+        height: 70vh;
+    }
+    .login-page{
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-page .img-div img,.register-page .img-div img{
+        display: none;
+    }
+    .reg-form{
+        width:56vw;
+    }
+    .register-page{
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+

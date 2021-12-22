@@ -1,0 +1,81 @@
+<%- include("../partials/header") -%>
+
+    <%-include("../partials/dash") -%>
+
+
+        <div class="outer-box">
+            <div class="comp-detail">
+                <h1 class="font-bold text-blue-400 comp-title  text-3xl">Complaint Id</h1>
+                <br>
+                <span class="font-bold text-white-600 px-4 py-1 bg-blue-400 rounded-full text-white">
+                    <%=comp._id %>
+                </span>
+                <div class="col-md-6">
+                    <div class="form-group my-3">
+                        <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Name of Student</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"
+                            aria-describedby="emailHelp"
+                            value="<%= comp.studentId.name %>" readonly>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Course/Branch</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"
+                            aria-describedby="emailHelp"
+                            value="<%=comp.course%> <%=comp.department %>" readonly>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Date of Filing
+                            Complaint</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"
+                            aria-describedby="emailHelp"
+                            value="<%=moment(comp.createdAt).format('MMMM Do YYYY, h:mm:ss A');%>" readonly>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Complaint
+                            Regarding</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" value="<%=comp.complaintTitle %>" readonly>
+                    </div>
+                    <label for="" class="text-2xl font-semibold comp-title my-2">Details of Complaint</label>
+                    <textarea name="" id="" cols="30" rows="10" class="form-control"
+                        readonly><%=comp.detail %>
+                    </textarea>
+                    <div class="form-group my-3">
+                        <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Contact Number</label>
+                        <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" value="<%=comp.studentId.contactNo %>" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="action">
+                <h1 class="text-3xl comp-title my-4 title">Action Performed</h1>
+                <% if(messages.error){ %>
+                    <p class="font-semibold text-red-400"><%=messages.error %></p>
+                  <% } %>
+                  <div class="form-group my-3">
+                      <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Faculty Name</label>
+                      <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"
+                          aria-describedby="emailHelp" value="<%=user.name%>" readonly>
+                  </div>
+                <form action="/admin/statusChange" method="POST">
+                    <label for="" class="text-2xl font-semibold comp-title my-2">Message to the Student</label>
+                    <textarea cols="20" rows="5" class="form-control" name="message"></textarea>
+                    <div class="form-group my-3">
+                        <input type="hidden" name="complaintId" value="<%= comp._id %>">
+                        <input type="hidden" name="emailId" value="<%= comp.studentId.email %>">
+                        <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Change Status</label>
+                        <select class="form-select" aria-label="Default select example" name="status">
+                            <option selected value="">--Select the Status--</option>
+                            <option value="Complaint Pending">Complaint Pending</option>
+                            <option value="Complaint Resolved">Complaint Resolved</option>
+                          </select>
+                    </div>
+                    <div class="dash-btn">
+                          <button  type="submit" class="btn btn-primary text-white font-semibold m-btn">Send Mail</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <%- include("../partials/footer") -%>

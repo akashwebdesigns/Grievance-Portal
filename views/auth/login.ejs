@@ -1,0 +1,50 @@
+<%-include("../partials/header") %>
+
+<!-- <h1 class="title text-3xl" id="heading">Login Here</h1> -->
+
+<section class="login-page">
+  <div class="row login-row">
+    <div class="col col-sm-12 col-lg-6 d-flex justify-content-center my-auto img-div">
+      <img src="/img/logo.png" alt="" style="cursor: pointer;">
+    </div>
+    <div class="col col-sm-12 col-md-6 icon-div">
+        <div class="user-ico">
+            <img src="img/profile.png" alt="" style="cursor: pointer;"> 
+        </div>
+      <div class="form">
+        <form action="/login" method="POST" id="subscribeForm">
+          <% if(messages.error){ %>
+            <div class="mb-3 text-center error">
+                    <span class="text-red-500 ṭext-sm font-semibold">*<%=messages.error%></span>
+            </div> 
+            <% } %>   
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-xl">Username</label>
+            <input type="text" class="form-control" placeholder="example@mail.com" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">           
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label text-xl">Password</label>
+            <input type="password" class="form-control" placeholder="**********" name="password" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Remember me</label>
+          </div>
+          <div class="mb-3">
+            <div class="g-recaptcha" data-type="image" data-sitekey="6Lfai1MbAAAAAP1G11X5TLasR6q8rAHICONW1FIp"></div>
+          </div>
+          <button type="submit" class="btn btn-warning text-white font-semibold hover:bg-yellow-500 transition-all duration-300 login-btn">Login in</button>
+          <a class="block align-baseline font-bold text-sm py-3 hover:text-yellow-400 transition-all duration-300" href="/register">
+            Not a member ? Click here
+        </a>
+        <a class="block align-baseline font-bold text-sm hover:text-yellow-400 transition-all duration-300" href="/forgot-password">
+          Forgot Password?
+      </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%-include("../partials/footer") %>

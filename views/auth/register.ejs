@@ -1,0 +1,50 @@
+<%- include("../partials/header") -%>
+<section class="register-page">
+    <div class="row register-row">
+      <div class="col col-sm-12 col-lg-6 d-flex justify-content-center my-auto img-div">
+        <img src="/img/logo.png" alt="" style="cursor: pointer;">
+      </div>
+      <div class="col col-sm-12 col-md-6 icon-div py-10">
+        <div class="user-ico">
+          <img src="img/user.png" alt="" style="cursor: pointer;">
+      </div>
+        <div class="form w-1/3 reg-form">
+          <form action="/register" method="POST">
+            <% if(messages.error){ %>
+            <div class="mb-3 text-center error">
+                    <span class="text-red-500 ṭext-sm font-semibold">*<%=messages.error%></span>
+            </div> 
+            <% } %>                 
+            <div class="mb-3">
+              <input type="text" value="<%=messages.name%>"class="form-control" placeholder="Full Name" id="exampleInputEmail1" name="name" aria-describedby="emailHelp">           
+            </div>
+            <div class="mb-3">
+                <input type="text" value="<%=messages.rollno%>" class="form-control" placeholder="University Reg. Number" name="rollno" id="exampleInputEmail1" aria-describedby="emailHelp">           
+              </div>
+              <div class="mb-3">
+                <input type="email" value="<%=messages.email%>" class="form-control" placeholder="Email" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">           
+              </div>
+              <div class="mb-3">
+                <input type="number" value="<%=messages.number%>" class="form-control" placeholder="Contact Number" name="number" id="exampleInputEmail1" aria-describedby="emailHelp">           
+              </div>
+            <div class="mb-3">  
+              <input type="password" placeholder="Password" class="form-control"  name="pass" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Confirm Password" name="cpass" id="exampleInputEmail1" aria-describedby="emailHelp">           
+            </div>
+              <div class="flex flex-col text-center">
+                     <button type="submit" class="btn btn-warning text-white font-semibold hover:bg-yellow-500 transition-all duration-300 rounded w-full">Sign Up</button>
+                    <a class="block align-baseline font-bold text-sm py-3 hover:text-yellow-400 transition-all duration-300 " href="/login">
+                     Already Regsitered ? Login 
+                    </a>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<%- include("../partials/footer") -%>

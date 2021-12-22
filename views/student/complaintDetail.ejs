@@ -1,0 +1,51 @@
+<%- include("../partials/header") -%>
+
+<%-include("../partials/dash") -%>
+
+<div class="outer-box">
+    <div class="comp-detail">
+            <h1 class="font-bold text-blue-400 comp-title  text-3xl">Complaint Id</h1>  
+            <br>
+            <span class="font-bold text-white-600 px-4 py-1 bg-blue-400 rounded-full text-white"><%=comp._id %></span>  
+            <div class="col-md-6">
+                <div class="form-group my-3">
+                    <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Date of Filing Complaint</label>
+                    <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%=moment(comp.createdAt).format('MMMM Do YYYY, h:mm:ss A');%>" readonly>
+                  </div>
+                <div class="form-group my-3">
+                  <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Complaint Title</label>
+                  <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%=comp.complaintTitle %>" readonly>
+                </div>
+                <div class="form-group my-3">
+                  <label for="exampleInputPassword1" class="text-2xl font-semibold comp-title my-2">Complaint Regarding</label>
+                  <input type="text" class="form-control form-control-lg" id="exampleInputPassword1" value="<%=comp.complaintReagrding %>"readonly>
+                </div>
+                <label for="" class="text-2xl font-semibold comp-title my-2">Details</label>
+                <textarea name="" id="" cols="30" rows="10" class="form-control" readonly><%=comp.detail %></textarea>
+            </div>
+    </div>
+    <div class="status">
+       <h1 class="text-3xl comp-title my-4 title">Current Status</h1>
+       <% if(comp.status=="Pending"){ %>
+       <img src="/img/pending.png" alt="" class="status-img">
+       <h1 class="text-3xl bg-yellow-400 text-white font-semibold rounded-full px-4 py-1 my-3 text-center">Pending</h1>
+       <% }else{ %>
+        <img src="/img/checked.png" alt="" class="status-img">
+        <h1 class="text-3xl bg-green-400 text-white font-semibold rounded-full px-4 py-1 my-3 text-center">Resolved ! Please Check Your Email</h1>
+        <% } %>
+       <div class="form-group my-2">
+        <label for="exampleInputEmail1" class="text-2xl font-semibold comp-title my-2">Last Updated At</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%=moment(comp.createdAt).format('MMM Do YYYY, h:mm:ss A');%>" readonly>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<%- include("../partials/footer") -%>

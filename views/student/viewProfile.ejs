@@ -1,0 +1,81 @@
+<%- include("../partials/header") -%>
+
+<%-include("../partials/dash") -%>
+
+<div class="outer-view-div">
+    <div class="profile-view-div">
+        <img src="/img/user2.png" alt="Admin" class="rounded-circle" width="150">
+        <h4 class="py-3 text-4xl font-bold text-blue-400"><%=user.name %></h4>
+        <p class="text-secondary text-xl font-semibold mb-1">Student</p>
+        <p class="text-xl text-secondary font-semibold">MMMUT Gorakhpur</p>
+    </div>
+    <div class="profile-info-div">
+        <div class="inner-profile-div">
+            <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0 text-2xl py-2">Full Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary text-2xl py-2">
+                  <%=user.name %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0 text-2xl py-2">Roll No</h6>
+                </div>
+                <div class="col-sm-9 text-secondary text-2xl py-2">
+                  <%= user.rollno %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0 text-2xl py-2">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary text-2xl py-2">
+                  <%= user.email %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0 text-2xl py-2">Contact No</h6>
+                </div>
+                <div class="col-sm-9 text-secondary text-2xl py-2">
+                  <%= user.contactNo %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3 py-2">
+                  <h6 class="mb-0 text-2xl">Course</h6>
+                </div>
+                <div class="col-sm-9 text-secondary text-2xl py-2">
+                  <%= user.course %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3 py-2">
+                  <h6 class="mb-0 text-2xl">Branch</h6>
+                </div>
+                <div class="col-sm-9 text-secondary text-2xl py-2">
+                  <%= user.branch %>
+                </div>
+              </div>
+              <hr>
+              <br>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a class="btn btn-info "  href="/user/edit/<%= user._id %>">Edit</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include("../partials/footer") -%>

@@ -1,0 +1,106 @@
+<%- include("../partials/header") -%>
+
+<%-include("../partials/dash") -%>
+
+<div class="outer-view-div">
+    <div class="profile-view-div">
+        <img src="/img/user2.png" alt="Admin" class="rounded-circle" width="150">
+        <h4 class="py-3 text-4xl font-bold text-blue-400"><%=user.name %></h4>
+        <p class="text-secondary text-xl font-semibold mb-1">Student</p>
+        <p class="text-secondary text-xl font-semibold ">MMMUT Gorakhpur</p>
+    </div>
+    <div class="profile-info-div">
+        <div class="inner-profile-div">
+            <form action="/user/edit/<%=user._id %>" method="POST">
+                <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0 text-2xl py-2">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary text-2xl py-2">
+                        <input type="text" class="form-control"  value="<%= user.name %>" name="name" >
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0 text-2xl py-2">Roll No</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary text-2xl py-2">
+                        <input type="text" class="form-control" value="<%= user.rollno %>" name="rollno">
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0 text-2xl py-2">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary text-2xl py-2">
+                        <input type="email" class="form-control" value="<%=user.email %>" name="email">
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0 text-2xl py-2">Contact No</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary text-2xl py-2">
+                        <input type="number" class="form-control" value="<%=user.contactNo %>" name="contact">
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3 py-2">
+                      <h6 class="mb-0 text-2xl">Course</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary text-2xl py-2">
+                        <select class="form-select" aria-label="Default select example" name="course" value="<%= user.course %>">
+                            <option selected value="<%= user.course %>">Select your Course</option>
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="BBA">BBA</option>
+                            <option value="MBA">MBA</option>
+                            <option value="MCA">MCA</option>
+                            <option value="M.Tech">M.Tech</option>
+                            <option value="PhD">PhD</option>
+                            <option value="M.Sc.">M.Sc.</option>
+                          </select>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3 py-2">
+                      <h6 class="mb-0 text-2xl">Branch</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary text-2xl py-2">
+                        <select class="form-select" aria-label="Default select example" name="branch" value="<%=user.branch%>">
+                            <option selected value="<%=user.branch%>">Select your Department</option>
+                            <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Chemical Engineering">Chemical Engineering</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Electical Engineering">Electical Engineering</option>
+                            <option value="Electronics & Communication Engineering">Electronics & Communication Engineering</option>
+                            <option value="Information Technology and Computer Application">Information Technology and Computer Application</option>
+                            <option value="Physics an Material Science">Physics an Material Science</option>
+                            <option value="Chemistry and Environmental Science">Chemistry and Environmental Science</option>
+                            <option value="Mathematics and Scientific Computing">Mathematics and Scientific Computing</option>
+                            <option value="Humanities and Management Science">Humanities and Management Science</option>
+                          </select>
+                    </div>
+                  </div>
+                  <hr>
+                  <br>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <input type="submit" value="Save Changes" class="btn btn-info text-white font-semibold">
+                      <a class="btn btn-info text-white font-semibold "  href="/user/view/<%= user._id %>">View Profile</a>
+                    </div>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<%- include("../partials/footer") -%>

@@ -1,0 +1,71 @@
+<%- include("../partials/header") -%>
+
+<%-include("../partials/dash") -%>
+
+
+<div class="comp-form">
+  <form class="row comp-row g-3" action="/registerComplaint" method="POST">
+    <!-- <span class="text-red-400 ">*</span> -->
+    <% if(messages.error){ %>
+      <p class="font-semibold text-red-400">
+        <%=messages.error %>
+      </p>
+      <% } %>
+        <div class="col-md-6">
+          <label class="form-label">Complaint Title</label><span class="text-red-400">*</span>
+          <input type="text" class="form-control" name="title" value="<%=messages.title%>">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Course</label><span class="text-red-400">*</span>
+          <select class="form-select" aria-label="Default select example" name="course"
+            value="<%=messages.course%>">
+            <option selected value="">Select your Course</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="BBA">BBA</option>
+            <option value="MBA">MBA</option>
+            <option value="MCA">MCA</option>
+            <option value="M.Tech">M.Tech</option>
+            <option value="PhD">PhD</option>
+            <option value="M.Sc.">M.Sc.</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Department</label><span class="text-red-400">*</span>
+          <select class="form-select" aria-label="Default select example" name="department"
+            value="<%=messages.department%>">
+            <option selected value="">Select your Department</option>
+            <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Chemical Engineering">Chemical Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Electical Engineering">Electical Engineering</option>
+            <option value="Electronics & Communication Engineering">Electronics & Communication Engineering</option>
+            <option value="Information Technology and Computer Application">Information Technology and Computer
+              Application</option>
+            <option value="Physics an Material Science">Physics an Material Science</option>
+            <option value="Chemistry and Environmental Science">Chemistry and Environmental Science</option>
+            <option value="Mathematics and Scientific Computing">Mathematics and Scientific Computing</option>
+            <option value="Humanities and Management Science">Humanities and Management Science</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label class="form-label">Complaint Regarding</label><span class="text-red-400">*</span>
+          <input type="text" class="form-control" name="regarding" value="<%=messages.regarding%>">
+        </div>
+
+        <div class="form-floating">
+          <textarea name="details" class="form-control" value="<%=messages.details%>"
+            placeholder="Leave a comment here" id="floatingTextarea2" style="height: 130px"></textarea>
+          <label for="floatingTextarea2">Details of Complaint</label>
+          <br>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>  
+  </form>
+
+</div>
+
+
+
+<%- include("../partials/footer") -%>
