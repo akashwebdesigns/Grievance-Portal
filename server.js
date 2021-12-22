@@ -2,7 +2,7 @@ require('dotenv').config();//dotenv allows you to separate secrets from your sou
 const express=require('express');
 const mongoose= require('mongoose');
 const app=express();
-const PORT=process.env.port || 3000;
+const PORT=process.env.PORT || 3000;
 const session=require('express-session');
 const flash=require('express-flash');
 const MongoDbStore=require('connect-mongo');//used to store sessionid in the mongo database
