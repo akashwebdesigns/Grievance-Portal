@@ -1,9 +1,11 @@
 const Complaint = require("../../../models/complaintDetail");
 require('dotenv').config();
-const nodemailer=require("nodemailer");
+const nodemailer = require("nodemailer");
 const moment = require("moment");
-const User=require("../../../models/user");
-const bcrypt=require("bcrypt");
+const User = require("../../../models/user");
+const bcrypt = require("bcrypt");
+var SibApiV3Sdk = require("sib-api-v3-sdk");
+var defaultClient = SibApiV3Sdk.ApiClient.instance;
 
 function adminController() {
     return {
@@ -23,7 +25,7 @@ function adminController() {
         },
         statusChange(req, res) {
             // console.log(req.body);
-            const { message, status, emailId ,complaintId} = req.body;
+            const { message, status, emailId, complaintId } = req.body;
             if (!message) {
                 req.flash('error', 'Please write a message');
                 return res.redirect('/admin/complaints/' + complaintId);
@@ -35,8 +37,8 @@ function adminController() {
             if (status === "Complaint Resolved") {
                 Complaint.updateOne({ _id: req.body.complaintId }, { status: "Resolved" }, (err) => {
                     if (!err) {
-                            sendMail(emailId,message,complaintId);
-                            return res.redirect('/admin/complaints');
+                        sendMail(emailId, message, complaintId);
+                        return res.redirect('/admin/complaints');
                     }
                 })
             }
@@ -45,9 +47,9 @@ function adminController() {
             }
 
             //To send the mail
-            const sendMail = (mailID, message, complaintId) => {
+            const sendMail = async (mailID, message, complaintId) => {
                 let transporter = nodemailer.createTransport({
-                    host: "smtp.gmail.com",
+                    // host: "smtp.gmail.com",
                     port: 587,
                     secure: false, // true for 465, false for other ports
                     requireTLS: true,
@@ -64,7 +66,7 @@ function adminController() {
                     text: `Hello Student , with reference to your Complaint Id ${complaintId} , following actions are performed
 
                     ${message}      
-                    
+
                     With Regards
                     MMMUT Grievance Management Team
                     This is a system generated mail , Please do not reply to it.
@@ -78,12 +80,14 @@ function adminController() {
                         console.log('Email has been sent successfully ' + info.response);
                     }
                 })
+
+
             }
         },
-        addAdmin(req,res){
+        addAdmin(req, res) {
             res.render("admin/addAdmin");
         },
-        async postAddAdmin(req,res){
+        async postAddAdmin(req, res) {
             const { name, empId, email, number, pass, cpass } = req.body;
 
             if (!name || !empId || !email || !number || !pass || !cpass) {
@@ -128,7 +132,7 @@ function adminController() {
             }
 
             var password = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-            if(!(password.test(pass))){
+            if (!(password.test(pass))) {
                 req.flash('error', 'Password length must be greater than 6 and contain at least a symbol, upper and lower case letters and a number');
                 req.flash('name', name);
                 req.flash('empId', empId);
@@ -149,7 +153,7 @@ function adminController() {
                 email: email,
                 contactNo: number,
                 password: hashedPassword,
-                role:'admin'
+                role: 'admin'
             })
 
             // console.log(user);
