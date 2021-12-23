@@ -4,8 +4,7 @@ const nodemailer = require("nodemailer");
 const moment = require("moment");
 const User = require("../../../models/user");
 const bcrypt = require("bcrypt");
-var SibApiV3Sdk = require("sib-api-v3-sdk");
-var defaultClient = SibApiV3Sdk.ApiClient.instance;
+
 
 function adminController() {
     return {
@@ -49,7 +48,7 @@ function adminController() {
             //To send the mail
             const sendMail = async (mailID, message, complaintId) => {
                 let transporter = nodemailer.createTransport({
-                    // host: "smtp.gmail.com",
+                    host: "smtp.gmail.com",
                     port: 587,
                     secure: false, // true for 465, false for other ports
                     requireTLS: true,
