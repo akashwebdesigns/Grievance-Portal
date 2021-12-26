@@ -48,10 +48,10 @@ function adminController() {
             //To send the mail
             const sendMail = async (mailID, message, complaintId) => {
                 let transporter = nodemailer.createTransport({
+                    service:"gmail",
                     host: "smtp.gmail.com",
-                    port: 587,
-                    secure: false, // true for 465, false for other ports
-                    requireTLS: true,
+                    port: 465,
+                    secure: true, // true for 465, false for other ports
                     auth: {
                         user: "akash2019071007@gmail.com", // generated ethereal user
                         pass: process.env.PASSWORD, // generated ethereal password

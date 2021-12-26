@@ -8,10 +8,10 @@ const nodemailer = require('nodemailer');
 
 const sendMail = (mailID, link,) => {
     let transporter = nodemailer.createTransport({
+        service:"gmail",
         host: "smtp.gmail.com",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        requireTLS: true,
+        port: 465,
+        secure: true, // true for 465, false for other ports
         auth: {
             user: "akash2019071007@gmail.com", // generated ethereal user
             pass: process.env.PASSWORD, // generated ethereal password
@@ -214,7 +214,7 @@ function authController() {
             }
 
             const token = jwt.sign(payload, secret, { expiresIn: '10m' });
-            const link = `http://localhost:3000/forgot-password/${user._id}/${token}`;
+            const link = `${req.protocol}://${req.get("host")}/forgot-password/${user._id}/${token}`;
             // console.log(link);
             sendMail(emailId, link);
             res.json({ message: "Email has been sent Successfully!" });
