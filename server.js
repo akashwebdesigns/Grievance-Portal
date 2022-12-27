@@ -2,7 +2,7 @@ require('dotenv').config();//dotenv allows you to separate secrets from your sou
 const express=require('express');
 const mongoose= require('mongoose');
 const app=express();
-const PORT=process.env.PORT || 3000;
+const PORT=process.env.PORT || 5000;
 const session=require('express-session');
 const flash=require('express-flash');
 const MongoDbStore=require('connect-mongo');//used to store sessionid in the mongo database
@@ -19,7 +19,7 @@ app.use(flash());
 
 
 // Database Connection
-mongoose.connect(` mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.zkflz.mongodb.net/complaintSystem?retryWrites=true&w=majority`,{ useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex:true }).then(()=>{
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.zkflz.mongodb.net/complaintSystem?retryWrites=true&w=majority`,{ useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex:true }).then(()=>{
     console.log("Database Connected")
 })
 .catch((err)=>{

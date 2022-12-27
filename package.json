@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Portal to register complaints",
   "main": "index.js",
+  "engines": {
+    "node": "14.18.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
@@ -23,6 +26,7 @@
     "moment": "^2.29.1",
     "mongoose": "^5.12.14",
     "nodemailer": "^6.6.3",
+    "nodemon": "^2.0.16",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "request": "^2.88.2"

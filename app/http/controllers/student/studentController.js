@@ -39,7 +39,6 @@ function studentController() {
 
             newComplaint.save((err) => {
                 if (!err) {
-                    // console.log("Saved");
                     req.flash("success","Complaint registered Successfully");
                     return res.redirect('/complaint');
                 }
