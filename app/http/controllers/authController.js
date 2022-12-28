@@ -13,13 +13,13 @@ const sendMail = (mailID, link,) => {
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-            user: "akash2019071007@gmail.com", // generated ethereal user
-            pass: process.env.PASSWORD, // generated ethereal password
+            user: process.env.SMTP_MAIL, // generated ethereal user
+            pass: process.env.SMTP_PASSWORD, // generated ethereal password
         },
     });
 
     var mailOptions = {
-        from: 'MMMUT Grievnace Portal <akash2019071007@gmail.com>',
+        from: `MMMUT Grievnace Portal <${process.env.SMTP_MAIL}>`,
         to: mailID,
         subject: 'One time password reset link',
         text: 'Hello User , Your one time password reset link is given below',
@@ -204,7 +204,7 @@ function authController() {
 
             const user = await User.findOne({ email: emailId });
             if (!user) {
-                res.json({ message: "User Not Found!" });
+                return res.json({ message: "User Not Found!" });
             }
 
             const secret = process.env.JWT_SECRET + user.password;
@@ -217,7 +217,7 @@ function authController() {
             const link = `${req.protocol}://${req.get("host")}/forgot-password/${user._id}/${token}`;
             // console.log(link);
             sendMail(emailId, link);
-            res.json({ message: "Email has been sent Successfully!" });
+            return res.json({ message: "Email has been sent Successfully!" });
         },
         async resetPassword(req, res) {
             // console.log(req.params);
